@@ -1,0 +1,82 @@
+{
+  "name": "farrow-type-cli",
+  "version": "0.1.0",
+  "description": "Type-safe CLI framework with automatic validation powered by farrow-schema",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:clean": "rimraf dist",
+    "prebuild": "pnpm -s build:clean",
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "pnpm -s build",
+    "dev": "tsc --watch",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:ci": "vitest --run --coverage",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
+    "prerelease": "pnpm run build && pnpm run test:ci && pnpm run lint",
+    "prepare": "husky",
+    "commit": "cz"
+  },
+  "keywords": [
+    "cli",
+    "typescript",
+    "schema",
+    "validation",
+    "farrow",
+    "type-safe",
+    "command-line",
+    "argument-parser"
+  ],
+  "author": "AisonSu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AisonSu/farrow-type-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AisonSu/farrow-type-cli/issues"
+  },
+  "homepage": "https://github.com/AisonSu/farrow-type-cli#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "farrow-pipeline": "^2.3.0",
+    "farrow-schema": "^2.3.3"
+  },
+  "devDependencies": {
+    "rimraf": "^6.1.2",
+    "@commitlint/cli": "^20.4.1",
+    "@commitlint/config-conventional": "^20.4.1",
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "standard-version": "^9.5.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.18"
+  }
+}

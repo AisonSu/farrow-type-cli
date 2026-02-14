@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.env
+.env.local
+coverage/
+*.tsbuildinfo
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+
+# Claude Code
+.claude/settings.local.json
+
+# Husky (keep hooks)
+!.husky/
